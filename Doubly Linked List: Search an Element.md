@@ -1,42 +1,86 @@
-# 📝 Doubly Linked List: Search an Element
+### EX: 11.C Doubly Linked List (Traversal, Search and Delete)
 
-This Python program demonstrates the implementation of a **Doubly Linked List** where you can insert elements at both the beginning and the end of the list. Additionally, it allows you to search for a specific element in the list.
+### Aim: To Write a python program to traverse the elements in doubly linked list.
 
----
+### Algorithm:
 
-## 🎯 Aim
+STEP 1: Start.
 
-To write a Python program that:
-- Implements a **Doubly Linked List** with functions to insert elements at the beginning and the end of the list.
-- Implements a search function to check if a given element exists in the list.
+STEP 2: Create a node class and object of the node.
 
----
+STEP 3: Create another class to use the node object.
+STEP 4 : Traverse the list from start to last data element.
 
-## 🧠 Algorithm
+STEP 5 : Print the data.
 
-1. **Step 1:** Define a class `Nodeq` with:
-   - `data` to store the node's value.
-   - `next` to store the reference to the next node.
-   - `prev` to store the reference to the previous node.
+STEP 6 : Stop.
 
-2. **Step 2:** Define a class `DoublyLinkedList` with:
-   - `head` to point to the first node.
+### Program:
+```
+reg no:212223070021
+name:Ragunandhan S
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
 
-3. **Step 3:** In the `DoublyLinkedList` class, define methods:
-   - `insert_beginning(data)` to insert a node at the beginning.
-   - `insert_end(data)` to insert a node at the end.
-   - `search(data)` to search for an element in the list.
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+        new_node.prev = last
+    
+    def display_forward(self):
+        current = self.head
+        if not current:
+            print("List is empty")
+            return
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.next
+        print("None")
+    
+    def display_backward(self):
+        current = self.head
+        if not current:
+            print("List is empty")
+            return
+        while current.next:
+            current = current.next
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.prev
+        print("None")
 
-4. **Step 4:** Create an instance of `DoublyLinkedList`.
-   - Insert elements at the beginning and end.
-   - Search for specific elements.
+if __name__ == "__main__":
+    dll = DoublyLinkedList()
+    
+    for i in range(4):
+        val = int(input(f"Enter value {i+1}: "))
+        dll.append(val)
+    
+    print("Traversal in forward direction:")
+    dll.display_forward()
+    
+    print("Traversal in backward direction:")
+    dll.display_backward()
 
----
 
-## 💻 Program
-Add Code here
+```
+### Output:
+![image](https://github.com/user-attachments/assets/5f5f7b16-b7fc-45fb-a98b-9c141cb89922)
 
-## Sample Output
+### Result: Thus, the given program is implemented and executed successfully.
+ 
 
-## Result
 
